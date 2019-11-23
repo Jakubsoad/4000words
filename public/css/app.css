@@ -4575,11 +4575,12 @@ input[type=button].btn-block {
 }
 
 .navbar-brand {
+  font-family: Sacramento, cursive;
   display: inline-block;
-  padding-top: 0.32rem;
-  padding-bottom: 0.32rem;
+  padding-top: 12px;
+  padding-bottom: 1px;
   margin-right: 1rem;
-  font-size: 1.125rem;
+  font-size: 30px;
   line-height: inherit;
   white-space: nowrap;
 }

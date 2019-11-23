@@ -19,4 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/start', 'WordController@index');
+Route::get('/start', 'FlashcardController@index')->middleware('auth');
+
+Route::post('/start', 'FlashcardController@check');

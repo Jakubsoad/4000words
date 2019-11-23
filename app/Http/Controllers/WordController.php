@@ -5,12 +5,22 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Word;
 use Illuminate\Http\Request;
-use PhpParser\Builder;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 class WordController extends Controller
 {
+    public function unknownWords($id)
+    {
+        $userWords = User::find($id)->words()->get();
+        $userWordsId = [];
+        foreach ($userWords as $word) {
+            array_push($userWordsId, $word->id);
+        }
+        $unknownWords = Word::all()->diff(Word::whereIn('id', $userWordsId)->get());
 
-
+        return $unknownWords;
+    }
 
     /**
      * Display a listing of the resource.
@@ -19,8 +29,6 @@ class WordController extends Controller
      */
     public function index()
     {
-        $user = User::find(1)->words()->get();
-        dd($user);
     }
 
     /**

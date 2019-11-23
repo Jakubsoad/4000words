@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -46,6 +47,7 @@
 
             .title {
                 font-size: 84px;
+                font-family: Sacramento, cursive;
             }
 
             .links > a {
@@ -80,12 +82,8 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md" >
                     4000words
-                </div>
-
-                <div class="content">
-                    <a style="color: green; text-decoration: none" href="/start">Start</a>
                 </div>
             </div>
         </div>
