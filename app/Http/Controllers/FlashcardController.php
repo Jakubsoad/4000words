@@ -24,7 +24,7 @@ class FlashcardController extends Controller
         $words = $words->unknownWords(Auth::id());
 
 
-        if($words->count() > 4) {
+        if($words->count() > 3) {
             $words = $words->random(4)->shuffle();
         } else {
             return view('winner');
@@ -32,6 +32,7 @@ class FlashcardController extends Controller
         }
 
         $wordOfGame = $words->first();
+        $words = $words->shuffle();
 
         return view('flashcard', [
             'wordOfGame' => $wordOfGame,
@@ -44,6 +45,8 @@ class FlashcardController extends Controller
         $properId = $request->properId;
         $selectedId = $request->selectedId;
 
+        $words = Word::all();
+
         if($properId == $selectedId)
         {
             //dodaj do relacji
@@ -54,9 +57,6 @@ class FlashcardController extends Controller
                 'updated_at' => Carbon::now()
             ]);
         }
-
-        $words = new WordController();
-        $words = $words->unknownWords(Auth::id());
 
         return view('result', [
             'properId' => $properId,

@@ -24,7 +24,9 @@
         </div>
     </div>
     <div class="row justify-content-center m-4">
-    <button class="btn btn-outline-info">Następny</button>
+        <form method="get" action="/start">
+    <button class="btn btn-outline-info" type="submit">Następny</button>
+        </form>
     </div>
 </div>
 @endsection
