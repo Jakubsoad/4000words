@@ -2,35 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Word;
+use App\Game;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\DB;
-use League\Csv\Reader;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 
-class WordController extends Controller
+class GameController extends Controller
 {
-    public function unknownWords($id)
+    public function __construct()
     {
-        $userWords = User::find($id)->words()->get();
-        $userWordsId = [];
-        foreach ($userWords as $word) {
-            array_push($userWordsId, $word->id);
-        }
-        $unknownWords = Word::all()->diff(Word::whereIn('id', $userWordsId)->get());
-
-        return $unknownWords;
+        $this->middleware('auth');
     }
-
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function newGame()
     {
+        $game = new Game();
+        $game->user_id = Auth::id();
+        $game->nr_answers = 0;
+        $game->proper_answers = 0;
+        $game->created_at = Carbon::now();
+        $game->updated_at = Carbon::now();
+        $game->save();
+
+        return redirect()->route('start');
     }
 
     /**
@@ -57,10 +57,10 @@ class WordController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Word  $word
+     * @param  \App\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function show(Word $word)
+    public function show(Game $game)
     {
         //
     }
@@ -68,10 +68,10 @@ class WordController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Word  $word
+     * @param  \App\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function edit(Word $word)
+    public function edit(Game $game)
     {
         //
     }
@@ -80,10 +80,10 @@ class WordController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Word  $word
+     * @param  \App\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Word $word)
+    public function update(Request $request, Game $game)
     {
         //
     }
@@ -91,10 +91,10 @@ class WordController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Word  $word
+     * @param  \App\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Word $word)
+    public function destroy(Game $game)
     {
         //
     }

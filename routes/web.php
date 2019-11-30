@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/start', 'FlashcardController@index')->middleware('auth');
+Route::get('/start', 'FlashcardController@index')->middleware('auth')->name('start');
 
 Route::post('/start', 'FlashcardController@check');
+
+Route::post('/newGame', 'GameController@newGame');

@@ -8,13 +8,17 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use Notifiable;
 
     public function words()
     {
         return $this->belongsToMany(Word::class)->withTimestamps();
     }
 
-    use Notifiable;
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
 
     /**
      * The attributes that are mass assignable.
