@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/start', 'FlashcardController@index')->middleware('auth')->name('start');
 
+Route::get('/start/hangman', 'HangmanController@index')->middleware('auth');
+
 Route::post('/start', 'FlashcardController@check');
 
 Route::post('/newGame', 'GameController@newGame');
