@@ -1,4 +1,6 @@
-var haslo = "siemano";
+document.write(word.word);
+
+var haslo = word.word+' '+word.translation;
 haslo = haslo.toUpperCase();
 
 var dlugosc = haslo.length;
@@ -17,7 +19,8 @@ for (i=0; i<dlugosc; i++)
 
 function wypisz_haslo()
 {
-	document.getElementById("plansza").innerHTML = haslo1;
+    var search = haslo1.search(' ');
+	document.getElementById("plansza").innerHTML = '<small style="font-size: 50%">Słowo:</small> '+haslo1.substring(0, search)+'<br><small style="font-size: 50%">Tłumaczenie:</small> '+haslo1.substring(search);
 }
 
 window.onload = start;

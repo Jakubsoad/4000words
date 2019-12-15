@@ -30,7 +30,7 @@ class GameController extends Controller
         $game->updated_at = Carbon::now();
         $game->save();
 
-        return redirect()->route('start');
+        return redirect()->route('start/flashcard');
     }
 
     /**

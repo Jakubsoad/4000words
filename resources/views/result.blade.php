@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="row justify-content-center m-4">
-        <form method="get" action="/start">
+        <form method="get" action="/start/flashcard">
     <button class="btn btn-outline-info" type="submit">Następny</button>
         </form>
     </div>

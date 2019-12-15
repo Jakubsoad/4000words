@@ -3,7 +3,7 @@ body
 	background-color: #ffffff;
 	color: #000000;
 	font-size: 28px;
-	font-family: 'Inconsolata';
+	font-family: '';
 	font-weight: 700;
 }
 
@@ -17,8 +17,8 @@ body
 #plansza
 {
 	width: 900px;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	text-align: center;
 	font-size: 48px;
 	min-height: 60px;
