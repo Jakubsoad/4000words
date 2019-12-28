@@ -133,7 +133,8 @@ function sprawdz(nr)
 
 	//wygrana
 	if (haslo == haslo1)
-	document.getElementById("alfabet").innerHTML  = "Tak jest! Podano prawidłowe hasło: "+haslo+'<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
+	    //TODO:zapisac hasla z wisielca
+	document.getElementById("alfabet").innerHTML  = "Tak jest! Podano prawidłowe hasło:"+haslo+'<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
 
 	//przegrana
 	if (ile_skuch>=9)

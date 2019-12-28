@@ -38,11 +38,37 @@
 
                     </ul>
 
+
                     <!-- Right Side Of Navbar -->
+                  @if(\Illuminate\Support\Facades\Auth::check())
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 text-center">
+                                Pozostało Ci jeszcze:
+                                <button class="btn btn-outline-success btn-lg btn-block"><div id="odometer" class="odometer">4000</div> słów</button>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+                    <script src="{{asset('js/odometer.min.js')}}"></script>
+                    <script>
+                        setTimeout(function(){
+                            odometer.innerHTML = <?php $word = new \App\Http\Controllers\ChartsController();
+                            echo $word->wordsToLearn();
+                            ?>;
+                        }, 2);
+                    </script>
+                    <link rel="stylesheet" href="{{asset('css/odometer-theme-default.css')}}" />
+                    @endif
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/home">
                                 Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/charts">
+                                Aktywność
                             </a>
                         </li>
                         <!-- Authentication Links -->

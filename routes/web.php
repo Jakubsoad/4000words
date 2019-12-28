@@ -27,15 +27,6 @@ Route::post('/start/flashcard', 'FlashcardController@check');
 
 Route::post('/newGame', 'GameController@newGame');
 
-//TODO: przekazać do szubienica.js słowo i tłumaczenie
-//Czyli zrobić przekierowanie do controllera, utworzyć nową grę, zassać nieznane słowo
-//i przekazać je do hangman.blade, skąd w script przesłać je do szubienica.js
-//Tam wsadzić słowo i tłumaczenie
-//Zmienić domyślny widok walidacji: jeżeli dobre, to zapisać to w bazie.
-// Jeżeli złe, to wyświetlić tłumaczenie
+Route::get('/charts', 'ChartsController@charts');
 
-//TODO: Hangman: wyświetlać słowo i tłumaczenie do zgadnięcia.
-
-//TODO: nowa tabela hangman, w której będą gry
-//user_id, timestampsy, word_id
-//jeżeli zakończone sukcesem, to zaznaczyć słowo jako nauczone
+Route::get('/test', 'ChartsController@test');
