@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HangmanController extends Controller
 {
@@ -25,4 +27,25 @@ class HangmanController extends Controller
 
         return view('hangman', compact('word'));
     }
+
+    public function saveToKnown(Request $request)
+    {
+        DB::table('user_word')->insert([
+            'user_id' => Auth::id(),
+            'word_id' => $request->wordId,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        return redirect('/start/hangman');
+    }
 }
+
+
+
+
+
+
+
+
+

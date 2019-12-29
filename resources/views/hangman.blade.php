@@ -19,6 +19,7 @@
 @endsection
 
 @section('content')
+
     <div id="pojemnik">
         <div id="plansza" ></div>
         <div id="szubienica">
@@ -26,6 +27,13 @@
         </div>
         <div id="alfabet"></div>
         <div style="clear:both;"></div>
+
+        <form id="submit" action="/saveToKnown" method="post">
+            @csrf
+            <input type="hidden" name="wordId" value="{{$word->id}}">
+        </form>
     </div>
+
+
 
 @endsection

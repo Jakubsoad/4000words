@@ -132,10 +132,10 @@ function sprawdz(nr)
 	}
 
 	//wygrana
-	if (haslo == haslo1)
-	    //TODO:zapisac hasla z wisielca
-	document.getElementById("alfabet").innerHTML  = "Tak jest! Podano prawidłowe hasło:"+haslo+'<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
-
+	if (haslo == haslo1) {//TODO:zapisac hasla z wisielca
+        document.getElementById("alfabet").innerHTML = "Tak jest! Podano prawidłowe hasło:" + haslo + '<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
+        document.getElementById("submit").submit();
+    }
 	//przegrana
 	if (ile_skuch>=9)
 	document.getElementById("alfabet").innerHTML  = "Przegrana! Prawidłowe hasło: "+haslo+'<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';

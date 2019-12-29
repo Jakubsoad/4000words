@@ -23,6 +23,8 @@ Route::get('/start/flashcard', 'FlashcardController@index')->middleware('auth')-
 
 Route::get('/start/hangman', 'HangmanController@index')->middleware('auth');
 
+Route::post('/start/hangman', 'HangmanController@index')->middleware('auth');
+
 Route::post('/start/flashcard', 'FlashcardController@check');
 
 Route::post('/newGame', 'GameController@newGame');
@@ -30,3 +32,5 @@ Route::post('/newGame', 'GameController@newGame');
 Route::get('/charts', 'ChartsController@charts');
 
 Route::get('/test', 'ChartsController@test');
+
+Route::post('saveToKnown', 'HangmanController@saveToKnown');
