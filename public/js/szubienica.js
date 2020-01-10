@@ -1,4 +1,4 @@
-document.write(word.word);
+// document.write(word.word);
 
 var haslo = word.word+' '+word.translation;
 haslo = haslo.toUpperCase();
