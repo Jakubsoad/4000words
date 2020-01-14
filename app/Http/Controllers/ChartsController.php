@@ -58,8 +58,6 @@ class ChartsController extends Controller
             $counter = 0;
         }
 
-        //Odjac od 4000
-
         $chart->labels($lastMonth);
         $chart->dataset('', 'line', $a)
         ->color('lightblue');
